@@ -44,17 +44,18 @@ def main():
     df_to_download = df_to_download[ df_to_download[URL_COL].notnull() ]
     df_to_download = df_to_download[~df_to_download[ID_COL].isin(existing_ids)]
 
-    counter = 0
-
     for index, row in df_to_download.iterrows():
-        counter = counter + 1
 
         id_value = row[ID_COL]
         url_value = row[URL_COL]
 
         save_path = DOWNLOAD_DIR / (id_value + ext)
 
-        print(id_value, save_path)
+        try:
+            urllib.request.urlretrieve(url_value, save_path)
+        except:
+            print(f'Failed to download {id_value}, {url_value}')
+   
 
 
     print("Remaining PDFs to download:", len(df_to_download))
