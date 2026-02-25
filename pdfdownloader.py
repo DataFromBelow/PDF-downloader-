@@ -54,7 +54,7 @@ def main():
 
         save_path = DOWNLOAD_DIR / (id_value + ext)
 
-        print(id_value, url_value, save_path)
+        print(id_value, save_path)
 
 
     print("Remaining PDFs to download:", len(df_to_download))
