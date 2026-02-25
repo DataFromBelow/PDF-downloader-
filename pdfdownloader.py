@@ -42,9 +42,22 @@ def main():
 
     df_to_download = df.copy()
     df_to_download = df_to_download[ df_to_download[URL_COL].notnull() ]
+    df_to_download = df_to_download[~df_to_download[ID_COL].isin(existing_ids)]
+
+    counter = 0
+
+    for index, row in df_to_download.iterrows():
+        counter = counter + 1
+
+        id_value = row[ID_COL]
+        url_value = row[URL_COL]
+
+        save_path = DOWNLOAD_DIR + "/" + id_value + ext
+
+        print(id_value, url_value, save_path)
 
 
-    print("Column exists")
+    print("Remaining PDFs to download:", len(df_to_download))
 
 if __name__ == "__main__": 
     main()
