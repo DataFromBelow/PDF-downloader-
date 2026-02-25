@@ -52,7 +52,7 @@ def main():
         id_value = row[ID_COL]
         url_value = row[URL_COL]
 
-        save_path = DOWNLOAD_DIR + "/" + id_value + ext
+        save_path = DOWNLOAD_DIR / (id_value + ext)
 
         print(id_value, url_value, save_path)
 
