@@ -24,11 +24,11 @@ def main():
     print("Columns:", df.columns)
     
     if ID_COL not in df.columns:
-        print("ID column is missing")
+        print(ID_COL + " ID column is missing")
         quit()
 
     if URL_COL not in df.columns:
-        print("ID column is missing")
+        print(URL_COL + " URL column is missing")
         quit()
 
     existing_ids = set()
@@ -39,7 +39,11 @@ def main():
             new_id = existing_id.replace(ext, "")
             existing_ids.add(new_id)
     print(len(existing_ids))
-    
+
+    df_to_download = df.copy()
+    df_to_download = df_to_download[ df_to_download[URL_COL].notnull() ]
+
+
     print("Column exists")
 
 if __name__ == "__main__": 
