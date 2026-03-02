@@ -1,9 +1,12 @@
+#Imports libaries such as Pandas for data processing and pathlib for handling filesystem paths.
+#Urllib is a libary that is used to work with URLs such as fetching werb data, parsing URLs etc. 
+#Import os allows us to interact with the operating system.
 import pandas as pd
 from pathlib import Path 
 import urllib.request
 import os
 
-
+#
 INPUT_EXCEL = Path("C:/Users/Spac-43/Desktop/pdf_downloader/excel_files/GRI_2017_2020.xlsx")
 OUTPUT_DIR = Path("C:/Users/Spac-43/Desktop/pdf_downloader/output")
 DOWNLOAD_DIR = OUTPUT_DIR / "dwn"
