@@ -105,3 +105,4 @@ def main():
 #This ensures that main() only runs when the script is executed directly
 if __name__ == "__main__": # Very nice
     main()
+    
